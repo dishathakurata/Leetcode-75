@@ -1,5 +1,3 @@
-package leetcode;
-
 //1071. Greatest common divisor of strings
 
 class Solution {
