@@ -1,0 +1,67 @@
+//605. Can place flowers
+
+class Solution {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int i = 0;
+
+        if(n == 0) {
+            return true;
+        }
+
+        if(flowerbed.length == 1) {
+            if(flowerbed[0] == 1) {
+                return false;
+            }
+
+            else if(flowerbed[0] == 0 && n == 1) {
+                return true;
+            }
+
+            return false;
+        }
+
+        while(i < flowerbed.length && n > 0) {
+            if(flowerbed[i] == 0) {
+                if(i == 0) {
+                    if(flowerbed[i + 1] != 1) {
+                        n--;
+                        i += 2;
+                    }
+
+                    else {
+                        i++;
+                    }
+                }
+
+                else if(i == flowerbed.length - 1) {
+                    if(flowerbed[i - 1] != 1) {
+                        n--;
+                        i += 2;
+                    }
+
+                    else {
+                        i++;
+                    }
+                }
+
+                else if(flowerbed[i - 1] != 1 && flowerbed[i + 1] != 1) {
+                    n--; 
+                    i += 2;
+                }
+
+                else {
+                    i++;
+                }
+            }
+            else {
+                i += 2;
+            }
+        }
+
+        if(n == 0) {
+            return true;
+        }
+
+        return false;
+    }
+}
