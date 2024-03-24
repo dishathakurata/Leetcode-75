@@ -1,5 +1,3 @@
-package leetcode;
-
 //1768. Merge strings alternatively
 
 class Solution {
