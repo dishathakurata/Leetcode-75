@@ -1,0 +1,32 @@
+//443. String compression
+
+class Solution {
+    public int compress(char[] chars) {
+        StringBuilder s = new StringBuilder();
+        int i = 0;
+
+        while(i < chars.length) {
+            char c = chars[i];
+            s.append(c);
+            int count = 0;
+
+            while(i < chars.length && chars[i] == c) {
+                count++;
+                i++;
+            } 
+
+            if(count > 1) {
+                s.append(count);
+            }        
+        }
+
+        String compressedStr = s.toString();
+        char[] compressedChars = compressedStr.toCharArray();
+        
+        for(int j = 0; j < compressedChars.length; j++) {
+            chars[j] = compressedChars[j];
+        }
+        
+        return compressedChars.length;
+    }
+}
